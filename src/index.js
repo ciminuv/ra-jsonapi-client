@@ -117,7 +117,9 @@ export default (apiUrl, userSettings = {}) => (type, resource, params) => {
     case UPDATE: {
       url = `${apiUrl}/${resource}/${params.id}`;
 
+      console.log('>>>>>>>>>>>>>1 ', params.data);
       const data = Object.assign({ id: params.id }, params.data);
+      console.log('>>>>>>>>>>>>>2 ', data);
 
       options.method = settings.updateMethod;
       options.data = new Serializer(resource, getSerializerOpts()).serialize(data);
